@@ -20,5 +20,8 @@
   "homepage": "https://github.com/MrGoddar/hub-de-leitura-teste-ui#readme",
   "dependencies": {
     "cypress": "^15.18.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0"
   }
 }
