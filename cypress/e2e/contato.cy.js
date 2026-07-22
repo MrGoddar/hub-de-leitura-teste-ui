@@ -1,3 +1,6 @@
+/// <reference types="cypress"/>
+
+
 describe('Funcionalidade: Contato', () => {
 
   beforeEach(() => {

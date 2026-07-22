@@ -6,26 +6,34 @@ describe('Funcionalidade: Catalogo de livros', () => {
         cy.visit('catalog.html')
     });
 
-    it.skip('Deve clicar no botão adicionar à cesta', () => {
+    it('Deve clicar no botão adicionar à cesta', () => {
         cy.get(':nth-child(1) > .card > .card-body > .mt-auto > .d-grid > .btn-primary').click()
         cy.get('#cart-count').should('contain', 1)
     });
 
     it('Deve clicar em todos os botões Adicionar à cesta', () => {
         cy.get('.btn-primary').click({ multiple: true })
+        cy.get('#cart-count').should('contain', 12)
 
     });
 
     it('Deve clicar no primeiro botão Adicionar à cesta', () => {
         cy.get('.btn-primary').first().click()
+        cy.get('#cart-count').should('contain', 1)
+
+
     });
 
     it('Deve clicar no ultimo botão Adicionar à cesta', () => {
         cy.get('.btn-primary').last().click()
+        cy.get('#cart-count').should('contain', 1)
+
     });
 
     it('Deve clicar no terceiro botão Adicionar à cesta', () => {
         cy.get('.btn-primary').eq(2).click()
+        cy.get('#cart-count').should('contain', 1)
+
 
     });
 

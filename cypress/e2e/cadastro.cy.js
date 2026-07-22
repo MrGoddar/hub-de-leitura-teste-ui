@@ -2,7 +2,7 @@
 import { faker } from '@faker-js/faker';
 
 describe('Funcionalidade: Cadadstro no hub de leitura', () => {
-    
+
     beforeEach(() => {
         cy.visit('register.html')
     });
@@ -20,7 +20,7 @@ describe('Funcionalidade: Cadadstro no hub de leitura', () => {
         cy.url().should('include', 'dashboard')
     });
 
-    it.only('Deve fazer cadastro com sucesso, usando Faker', () => {
+    it('Deve fazer cadastro com sucesso, usando Faker', () => {
         let nome = faker.person.fullName()
         let email = faker.internet.email()
         cy.get('#name').type(nome)
@@ -33,6 +33,19 @@ describe('Funcionalidade: Cadadstro no hub de leitura', () => {
         //Resultado esperado
         cy.url().should('include', 'dashboard')
         cy.get('#user-name').should('contain', nome)
-});
+    });
+
+    it('Deve preencher cadastro com sucesso - usando comando customizado', () => {
+        let email = `teste${Date.now()}@teste.com`
+        cy.preencherCadastro(
+            'Matheus Barros',
+            email,
+            '21988888888',
+            'Teste@123',
+            'Teste@123'
+        )
+        cy.url().should('include', 'dashboard')
+
+    });
 
 })
